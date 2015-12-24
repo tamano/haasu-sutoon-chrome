@@ -1,9 +1,17 @@
-console.log('translate_to_japanese.js start');
+now = new Date;
+console.log('Starting translation (' + now.toLocaleString() + ')');
+
+count = CardList.length;
+i = 0;
 
 for (id in CardList) {
+  i++;
+  console.log('(' + i + '/' + count + ') ' + CardList[id]["en_name"] + ' => ' + CardList[id]["ja_name"]);
   findAndReplace(CardList[id]["en_name"],CardList[id]["ja_name"]);
 }
 
+now = new Date;
+console.log('Complete translation (' + now.toLocaleString() + ')');
 
 /** Code below came from http://james.padolsey.com/snippets/find-and-replace-text-with-javascript/ **/
 function makeRegExp(str) {
@@ -11,8 +19,6 @@ function makeRegExp(str) {
 }
 
 function findAndReplace(searchText, replacement, searchNode) {
-  console.log("TEXT:" + searchText + "/" + replacement + "/" + searchNode);
-
   var regex = makeRegExp(searchText),
     childNodes = (searchNode || document.body).childNodes,
     cnLength = childNodes.length,
