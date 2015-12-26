@@ -1,17 +1,30 @@
 now = new Date;
 console.log('Starting translation (' + now.toLocaleString() + ')');
 
-count = CardList.length;
-i = 0;
 
-for (id in CardList) {
-  i++;
-  console.log('(' + i + '/' + count + ') ' + CardList[id]["en_name"] + ' => ' + CardList[id]["ja_name"]);
-  findAndReplace(CardList[id]["en_name"],CardList[id]["ja_name"]);
-}
+var i = 0, length = CardList.length;
+var busy = false;
+
+var process = setInterval(function() {
+  if (!busy) {
+    busy = true;
+    var current = CardList[i];
+    var text = '(' + (i+1) + '/' + length + ') '
+    console.log(text + current["en_name"] + ' => ' + current["ja_name"]);
+    findAndReplace(current["en_name"],current["ja_name"]);
+    i++;
+
+    if (i == length) {
+      clearInterval(process);
+    }
+
+    busy = false
+  }
+}, 1)
 
 now = new Date;
 console.log('Complete translation (' + now.toLocaleString() + ')');
+
 
 /** Code below came from http://james.padolsey.com/snippets/find-and-replace-text-with-javascript/ **/
 function makeRegExp(str) {
