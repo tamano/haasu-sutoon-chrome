@@ -15,6 +15,9 @@ Webページ中のハースストーンの英カード名を和訳するChrome�
 1. ページ内で右クリックして、コンテキストメニューを開く。
 1. `Hearthstoneカードを和訳`をクリックする。
 
+## 注意事項
+- 現バージョンでは、カードのデータはプログラム内に内蔵しています。そのため、カードが増えたりパッチが当たった場合は、最新のバージョンをダウンロードし直す必要があります。
+
 ## Copyrights
 - The card data in this program has provided by [haasu-sutoon-data](https://github.com/tamano/haasu-sutoon-data).
 - The card data in this program that is Copyright © Blizzard Entertainment - All Rights Reserved.
