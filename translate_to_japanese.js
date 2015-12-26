@@ -1,6 +1,10 @@
 now = new Date;
 console.log('Starting translation (' + now.toLocaleString() + ')');
 
+/* Create Progress Indicator */
+var statusIndicator = document.createElement('div');
+statusIndicator.style.cssText = 'position:fixed;top:5px;right:5px;font:18px sans-serif;color:white;border:0px solid;background-color:black;z-index:100000;';
+document.body.appendChild(statusIndicator);
 
 var i = 0, length = CardList.length;
 var busy = false;
@@ -11,11 +15,14 @@ var process = setInterval(function() {
     var current = CardList[i];
     var text = '(' + (i+1) + '/' + length + ') '
     console.log(text + current["en_name"] + ' => ' + current["ja_name"]);
+    statusIndicator.innerHTML = ' カードを和訳中: ' + text;
     findAndReplace(current["en_name"],current["ja_name"]);
     i++;
 
     if (i == length) {
       clearInterval(process);
+      /* Close Progress Indicator */
+      statusIndicator.parentNode.removeChild(statusIndicator);
     }
 
     busy = false
