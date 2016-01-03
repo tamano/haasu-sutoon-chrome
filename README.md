@@ -27,3 +27,6 @@ Webページ中のハースストーンの英カード名を和訳するChrome�
 - The card data in this program has provided by [haasu-sutoon-data](https://github.com/tamano/haasu-sutoon-data).
 - The card data in this program that is Copyright © Blizzard Entertainment - All Rights Reserved.
 - This program is not affiliated with Blizzard Entertainment in any way.
+
+## Thanks
+- del, 並兵法, prae
